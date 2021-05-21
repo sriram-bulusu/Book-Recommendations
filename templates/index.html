@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender</title>
+</head>
+
+<body>
+
+    <div style="color:black">
+        <form action="{{ url_for('recommend_books')}}" method="post">
+            <h2>Book Recommendations</h2>
+            <h3>What is the title of your last great read?</h3>
+            <input id="first" name="Title" type="text ">
+            
+            <br><br>
+            
+            <button id="sub" type="submit ">Recommend</button>
+            <br>
+
+        </form>
+
+        <br><br><br>
+
+        <table>
+            <tr>
+                {% for col in column_names %}
+                <th>{{col}}</th>
+                {% endfor %}
+            </tr>
+            {% for row in row_data %}
+            <tr>
+                {% for col, row_ in zip(column_names, row) %}
+                {% if col == link_column %}
+
+                {% else %}
+                <td>{{row_}}</td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        
+        </table>
+            
+
+        
+    </div>
+
+
+
+
+    <style>
+        table {
+        margin-left: auto;
+        margin-right: auto;    
+        font-family: arial, sans-serif; 
+        border-collapse: collapse;
+        width: 50%;
+        border: 3.5px solid darkblue;
+        font-size: x-large;
+        }
+
+        td, th {
+            border: 3px solid darkblue;
+            text-align: left;
+            padding: 8px;
+        }
+        body {
+            background-color: rgb(172, 203, 232);
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+     
+
+        
+        #research {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+    </style>
+</body>
+
+</html>

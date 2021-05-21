@@ -1,0 +1,6 @@
+Many readers struggle to find another book to read after they have just finished one. The goal of this project is to recommend a reader's next
+great read. 
+
+Create a book recommendation engine. The program will take the content of books a user likes(author, genre, publisher, etc.) and will
+rank other books based on these factors.
+
